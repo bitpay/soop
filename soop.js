@@ -1,5 +1,7 @@
 var path = require('path');
 var callsite = require('callsite');
+var realModulePaths = module.paths;
+var realModuleFilename = module.filename;
 
 // Decorate the given constructor with some useful
 // object oriented constructs (mainly a convenient inherit()
@@ -47,11 +49,18 @@ module.exports = function(constructor) {
 //        location in the file system
 // @imports namespace for binding values in the loaded module
 var load = function(fname, imports) {
+  var callerFilename = callsite()[1].getFileName();
   if((fname.slice(0,2) == './') || (fname.slice(0,3) == '../')) {
-    var callerFilename = callsite()[1].getFileName();
     fname = path.resolve(path.dirname(callerFilename), fname);
   }
+
+  // fake out module path resolution here
+  module.paths = module.parent.paths;
+  module.filename = module.parent.filename;
   fname = require.resolve(fname);
+  module.paths = realModulePaths;
+  module.filename = realModuleFilename;
+
   var cachedModule = require.cache[fname];
   if (cachedModule) delete require.cache[fname];
   global._imports = imports;
