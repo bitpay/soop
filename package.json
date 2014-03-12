@@ -1,6 +1,6 @@
 {
   "name": "soop",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Soop up your JavaScript.",
   "main": "soop.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gasteve/node-soop.git"
+    "url": "https://github.com/bitpay/soop.git"
   },
   "keywords": [
     "oop",
@@ -24,9 +24,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gasteve/node-soop/issues"
+    "url": "https://github.com/bitpay/soop/issues"
   },
-  "homepage": "https://github.com/gasteve/node-soop",
+  "homepage": "https://github.com/bitpay/soop",
   "readme": "node-soop\n=========\n\nSoop up your JavaScript.\n",
   "readmeFilename": "README.md",
   "_id": "soop@0.1.0",

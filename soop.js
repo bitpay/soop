@@ -49,8 +49,8 @@ module.exports = function(constructor) {
 //        location in the file system
 // @imports namespace for binding values in the loaded module
 var load = function(fname, imports) {
-  var callerFilename = callsite()[1].getFileName();
   if((fname.slice(0,2) == './') || (fname.slice(0,3) == '../')) {
+    var callerFilename = callsite()[1].getFileName();
     fname = path.resolve(path.dirname(callerFilename), fname);
   }
 
